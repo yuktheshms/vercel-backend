@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "gateway": {
+      "root": "gateway",
+      "framework": "express"
+    },
+    "agent": {
+      "root": "services/agent",
+      "framework": "express"
+    },
+    "auth": {
+      "root": "services/auth",
+      "framework": "express"
+    },
+    "billing": {
+      "root": "services/billing",
+      "framework": "express"
+    },
+    "chat": {
+      "root": "services/chat",
+      "framework": "express"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "gateway"
+      }
+    }
+  ]
+}
